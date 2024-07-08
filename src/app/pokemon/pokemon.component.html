@@ -1,0 +1,28 @@
+<div>
+  <form (submit)="onSubmit(); $event.preventDefault();">
+    <label for="pokemonId">Enter Pokémon ID:</label>
+    <input type="number" id="pokemonId" [(ngModel)]="pokemonId" name="pokemonId" required>
+    <button type="submit">Search</button>
+  </form>
+</div>
+
+<div *ngIf="pokemon">
+  <h1>{{ pokemon.name }}</h1>
+  <p>ID: {{ pokemon.id }}</p>
+  <h2>Evolution Chain:</h2>
+  <table *ngIf="pokemon.evolutionChains && pokemon.evolutionChains.length > 0">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let evo of pokemon.evolutionChains">
+        <td>{{ evo.name }}</td>
+        <td>{{ evo.id }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="pokemon.evolutionChains && pokemon.evolutionChains.length === 0">No evolution chains found.</p>
+</div>

@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { PokemonComponent } from './pokemon/pokemon.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.less'
+  imports: [CommonModule, PokemonComponent],
+  template: `<app-pokemon></app-pokemon>`
+  // styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'pokemon-app';
-}
+export class AppComponent { }
